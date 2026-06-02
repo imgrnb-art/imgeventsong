@@ -1,49 +1,181 @@
+/* ===== 全体背景 ===== */
 body {
-  margin: 0;
-  padding: 20px;
-  font-family: sans-serif;
-  background: #fafafa;
-  color: #222;
+    margin: 0;
+    padding: 0;
+    font-family: "Yu Gothic", "游ゴシック体", "Hiragino Kaku Gothic Pro", sans-serif;
+    background-color: #f0f3f5;
+    background-image: url("https://github.com/imgrnb-art/imgrnb/blob/main/imgrnborg.jpg?raw=true");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #222;
 }
 
-/* 透明背景（最低限） */
+/* ===== コンテンツ外枠 ===== */
 .content-bg {
-  position: relative;
-  padding: 20px;
+    display: flex;
+    justify-content: center;
+    padding: 60px 30px;
 }
 
-.content-glass {
-  position: absolute;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(4px);
-  z-index: 0;
-}
-
+/* ===== ガラス風カード ===== */
 .content-inner {
-  position: relative;
-  z-index: 1;
-  max-width: 900px;
-  margin: auto;
-  padding: 20px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 15px;
+    padding: 40px;
+    max-width: 1100px;
+    width: 100%;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
 }
 
-/* セクション */
-section {
-  margin-bottom: 40px;
+/* ===== ヘッダー ===== */
+.top {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
 }
 
-h3 {
-  border-left: 4px solid #555;
-  padding-left: 10px;
-  margin-bottom: 10px;
-  font-size: 1.2em;
+.top img {
+    width: 140px;
+    height: auto;
+    border-radius: 10px;
+    margin-right: 25px;
+    border: 2px solid #444;
 }
 
-p, li {
-  line-height: 1.7;
+.top div > div:first-child {
+    font-size: 1.6em;
+    font-weight: bold;
+    color: #1a1a1a;
 }
 
+/* ===== ナビゲーション（中央・ボタン風） ===== */
+.page-links {
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* 通常：白ボタン＋青文字 */
+.page-links a {
+    display: inline-block;
+    margin: 0.4em 0.5em;
+    padding: 8px 16px;
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #191970;
+    text-decoration: none;
+    border: 2px solid #191970;
+    border-radius: 8px;
+    background: #ffffff;
+    transition: all 0.2s ease;
+}
+
+/* 訪問後も色固定 */
+.page-links a:visited {
+    color: #191970;
+    border-color: #191970;
+}
+
+/* ホバー（通常ページのみ反転） */
+.page-links a:hover {
+    background: #191970;
+    color: #ffffff;
+}
+
+/* 押した瞬間 */
+.page-links a:active {
+    transform: translateY(1px);
+}
+
+/* ===== 現在ページ（active） ===== */
+/* 濃い背景＋白文字 */
+.page-links a.active {
+    background: #191970;
+    color: #ffffff;
+    border-color: #191970;
+}
+
+/* activeホバー時も色固定 */
+.page-links a.active:hover {
+    background: #191970;
+    color: #ffffff;
+}
+
+/* ===== 見出し ===== */
+h3, h4, h5, h6 {
+    font-family: "Georgia", serif;
+    color: #1b3a57;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 5px;
+}
+
+/* ===== 段落 ===== */
+p {
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+/* ===== リスト ===== */
 ul {
-  margin-left: 20px;
+    margin-left: 25px;
+    margin-bottom: 20px;
+}
+
+/* ===== レギュカード ===== */
+.regulation h5, .regulation h6 {
+    margin-top: 25px;
+    margin-bottom: 12px;
+    color: #d13f3f;
+}
+
+.regulation ul {
+    background: rgba(255, 255, 255, 0.75);
+    padding: 20px 25px;
+    border-radius: 12px;
+    list-style-type: square;
+}
+
+/* ===== Q&A ===== */
+.qa {
+    margin-top: 35px;
+    padding-top: 25px;
+    border-top: 2px dashed #ccc;
+}
+
+/* ===== エモート ===== */
+.emote ul {
+    background: rgba(240, 248, 255, 0.8);
+    padding: 20px;
+    border-radius: 12px;
+}
+
+/* ===== 強調 ===== */
+b {
+    color: #d13f3f;
+}
+
+/* ===== モバイル対応 ===== */
+@media (max-width: 768px) {
+    .top {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .top img {
+        margin-bottom: 15px;
+    }
+
+    .content-inner {
+        padding: 30px 20px;
+    }
+
+    /* ナビを縦並びボタンに */
+    .page-links a {
+        display: block;
+        margin: 8px auto;
+        width: 80%;
+        text-align: center;
+    }
 }
